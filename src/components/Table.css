@@ -1,0 +1,302 @@
+/* Table.css */
+@import url("https://fonts.cdnfonts.com/css/avenir-lt-pro");
+
+* {
+  box-sizing: border-box;
+}
+
+.card-title,
+.card-column {
+  font-family: "Avenir", sans-serif;
+  line-height: 1.75;
+}
+
+.card-container {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+}
+
+.card {
+  padding: 16px;
+  position: relative;
+}
+
+.card-title {
+  font-weight: 700;
+  letter-spacing: 0;
+  font-size: 16px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  font-weight: bold;
+  background-color: #e1e1e1;
+  padding: 0 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background-color: #e1e1e1;
+}
+
+.card-row {
+  display: flex;
+}
+
+.card-column {
+  flex: none;
+  text-align: center;
+}
+
+.card-column.left {
+  text-align: left;
+}
+
+.card-column.right {
+  text-align: right;
+}
+
+.card-column:last-child {
+  border-right: none;
+  border-bottom: none;
+}
+
+/* Radio and Checkbox button Styles */
+.hidden-input {
+  display: none;
+}
+
+.selection-input-wrapper svg {
+  width: 24px;
+  height: 24px;
+}
+
+.selected-row {
+  background-color: #efeffd;
+}
+
+/* Table css */
+.table-container {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-header {
+  display: inline-block;
+}
+
+.table-header-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sortable-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 12px; /* 12px spacing */
+}
+
+.sortable-icon svg {
+  display: block; /* To ensure the SVG doesn't have bottom whitespace */
+}
+
+table th,
+table td {
+  min-width: fit-content;
+}
+
+tbody td:first-child {
+  padding-left: 16px;
+}
+
+tbody td:last-child {
+  padding-right: 16px;
+}
+
+thead {
+  background-color: #f7f7f7;
+}
+
+thead th {
+  height: 40px;
+  font-family: "Avenir", sans-serif;
+  font-weight: 700;
+  line-height: 1.75;
+  letter-spacing: 0;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+thead th:first-child {
+  border-top-left-radius: 16px;
+}
+
+thead th:last-child {
+  border-top-right-radius: 16px;
+}
+
+.table-row {
+  font-family: "Avenir", sans-serif;
+  height: 40px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.1;
+  border-bottom: 1px solid #e1e1e1;
+  position: relative;
+}
+
+.table-row::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.table-row:last-child::after {
+  border-bottom: none;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row td {
+  padding: 8px 8px 8px 0;
+}
+
+.table-row:hover {
+  background-color: #efeffd;
+}
+
+.container.table .card-container,
+.container.card .table-container {
+  display: none;
+}
+
+.sortable-icon,
+.up-icon, /* Assuming you've used this class for Up SVG wrapper */
+.down-icon /* Assuming you've used this class for Down SVG wrapper */ {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  background-color: #dedafa;
+  border-radius: 50%; /* This makes it a circle */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; /* Makes it clear it's clickable */
+}
+
+.sortable-icon svg,
+.up-icon svg,
+.down-icon svg {
+  width: 18px; /* Or any size that looks good inside the circle */
+  height: 18px;
+}
+
+@media (min-width: 1200px) {
+  /* XL */
+  thead th,
+  .table-row {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* LG */
+  thead th,
+  .table-row {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* MD */
+  thead th,
+  .table-row {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* SM & XS */
+  .container.card .card-container {
+    display: block;
+  }
+  thead th {
+    font-size: 16px;
+  }
+  .table-row,
+  .card-row {
+    font-size: 14px;
+  }
+
+  /* Disable sortable headers */
+  th[sortable="true"] > span {
+    display: none; /* hides the sorting icons */
+  }
+
+  th[sortable="true"] {
+    pointer-events: none; /* disables clicking on sortable headers */
+    cursor: default; /* ensures the cursor doesn't change to a pointer */
+  }
+
+  .sortable-icon {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .container.card .table-container {
+    display: block;
+  }
+  .container.card .card-container {
+    display: none;
+  }
+  thead th {
+    height: 80px;
+  }
+
+  thead th:first-child {
+    border-top-left-radius: 16px;
+  }
+
+  thead th:last-child {
+    border-top-right-radius: 16px;
+  }
+
+  .table-row td {
+    padding: 24px;
+  }
+
+  .table-row::after {
+    left: 24px;
+    right: 24px;
+  }
+
+  .table-container {
+    border-radius: 16px;
+  }
+
+  .selection-input-wrapper svg {
+    width: 32px;
+    height: 32px;
+  }
+}
